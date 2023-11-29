@@ -7,7 +7,7 @@ from yak40_selectors import AngledFaceSelector
 import sketch_extensions
 import workplane_extensions
 
-from jupyter_cadquery.viewer.client import show
+# from jupyter_cadquery.viewer.client import show
 
 # ケース角度
 TYPING_ANGLE = 6.0
@@ -258,4 +258,4 @@ result = (
 export_step_file(result, "./build/case.step", title="A case of The Yak40 keyboard", author="kurikisasa")
 export_stl_file(result, "./build/case.stl")
 
-show(result)
+# show(result)
