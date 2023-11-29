@@ -258,7 +258,7 @@ result = (
 print(M3_PREPARED_HOLE_DEPTH)
 print(M2_PREPARED_HOLE_DEPTH)
 
-export_step_file(result, "./build/case.step", title="A case of The Yak40 keyboard", author="kurikisasa")
-export_stl_file(result, "./build/case.stl")
+export_step_file(result, "./production/case.step", title="A case of The Yak40 keyboard", author="kurikisasa")
+export_stl_file(result, "./production/case.stl")
 
 # show(result)
