@@ -154,7 +154,4 @@ def make_daughter_board_male_mold() -> Workplane:
         .fillet(USB_SHELL_CUTOUT_CORNER_R)
     )
 
-    # 全て結合
-    mold = main_mold + usb_hole + usb_shell_cutout + air_gap
-    # USBクリアランス込みで中央になるように移動
-    return mold.translate((0, -(USB_CLEARANCE_HEIGHT + MARGIN / 2) / 2, 0))
+    return main_mold + usb_hole + usb_shell_cutout + air_gap

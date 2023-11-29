@@ -2,6 +2,7 @@ from typing import Dict
 from cadquery import Edge, Location, Sketch, Vector, Vertex
 import numpy
 from cadquery.occ_impl.shapes import TopAbs_Orientation
+from cadquery.occ_impl.geom import VectorLike
 
 def _tangent_angle(vector1: Vector, vector2: Vector):
     u = numpy.array([vector1.x, vector1.y])
@@ -50,3 +51,10 @@ def center(self: Sketch, x: float, y: float) -> Sketch:
     self._selection = [Location((x, y, 0))]
     return self
 Sketch.center = center
+
+def rotate(self: Sketch, startVector: VectorLike, endVector: VectorLike, angleDegrees: float) -> Sketch:
+    rv = self.__class__()
+    rv._faces = self._faces.rotate(startVector, endVector, angleDegrees)
+
+    return rv
+Sketch.rotate = rotate
