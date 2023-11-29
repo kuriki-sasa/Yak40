@@ -63,12 +63,14 @@ BASE_PLATE_TOP_TO_DAUGHTER_BOARD_TOP = 9.0
 BOARD_MARGIN = 4.5
 
 # ねじ穴
-M3_HOLE_DIAMETER = 2.5
-M3_TAPPING_MARGIN = M3_HOLE_DIAMETER / 2.0
-M3_HOLE_DEPTH = 5 + M3_TAPPING_MARGIN
-M2_HOLE_DIAMETER = 1.6
-M2_TAPPING_MARGIN = M2_HOLE_DIAMETER / 2.0
-M2_HOLE_DEPTH = 3 + M2_TAPPING_MARGIN
+M3_SCREW_DIAMETER = 3.0
+M3_PREPARED_HOLE_DIAMETER = 2.5
+M3_TAPPING_MARGIN = M3_SCREW_DIAMETER / 2.0
+M3_PREPARED_HOLE_DEPTH = 4.5 + M3_TAPPING_MARGIN
+M2_SCREW_HOLE_DIAMETER = 2.0
+M2_PREPARED_HOLE_DIAMETER = 1.6
+M2_TAPPING_MARGIN = M2_SCREW_HOLE_DIAMETER / 2.0
+M2_PREPARED_HOLE_DEPTH = 3.0 + M2_TAPPING_MARGIN
 
 # Oリングバーガーマウント用寸法
 O_RING_DENT_DIA = 4.3
@@ -235,25 +237,26 @@ result = (
     .faces("<Z[-2]")
     .workplane(origin=(0, 0))
     .pushPoints(BASE_PLATE_SCREW_POINTS)
-    .drillHole(M3_HOLE_DIAMETER, M3_HOLE_DEPTH)
+    .drillHole(M3_PREPARED_HOLE_DIAMETER, M3_PREPARED_HOLE_DEPTH)
     # ドーターボード部分切り取り
     .cut(daughter_board_mold)
     # ドーターボードねじ穴開け
     .faces("<Z[2]")
     .workplane(origin=(0, 0))
     .pushPoints(DAUGHTER_BOARD_SCREW_POINTS)
-    .drillHole(M3_HOLE_DIAMETER, M3_HOLE_DEPTH)
+    .drillHole(M3_PREPARED_HOLE_DIAMETER, M3_PREPARED_HOLE_DEPTH)
     # スイッチプレートねじ穴開け
     .faces(AngledFaceSelector(TYPING_ANGLE))
     .faces("<Z")
     .workplane(centerOption="CenterOfBoundBox")
     .pushPoints(SWITCH_PLATE_SCREW_POINTS)
-    .drillHole(M2_HOLE_DIAMETER, M2_HOLE_DEPTH)
+    .drillHole(M2_PREPARED_HOLE_DIAMETER, M2_PREPARED_HOLE_DEPTH)
     # oリングバーガーマウント用にくぼみを掘る
     .pushPoints(SWITCH_PLATE_SCREW_POINTS)
     .hole(O_RING_DENT_DIA, O_RING_DENT_DEPTH)
 )
-
+print(M3_PREPARED_HOLE_DEPTH)
+print(M2_PREPARED_HOLE_DEPTH)
 
 export_step_file(result, "./build/case.step", title="A case of The Yak40 keyboard", author="kurikisasa")
 export_stl_file(result, "./build/case.stl")
