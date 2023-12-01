@@ -1,4 +1,4 @@
-from cadquery import Vector, Workplane, Sketch, Location
+from cadquery import Vector, Workplane, Sketch, Location, exporters
 from cqkit import export_step_file, export_stl_file
 import numpy
 import daughter_board
@@ -46,6 +46,7 @@ BASE_PLATE_HEIGHT = CASE_BOTTOM_HEIGHT - CASE_BOTTOM_FRAME * 2
 BASE_PLATE_CORNER_R = CASE_CORNER_R - CASE_BOTTOM_FRAME
 BASE_PLATE_THICKNESS = 5.0
 BASE_PLATE_SCREW_OFFSET = 5.0
+BASE_PLATE_THROUGH_HOLE_DIAMETER = 3.2
 
 # 各種高さ寸法
 CASE_TOP_TO_SWITCH_PLATE_TOP =  7.0
@@ -159,21 +160,27 @@ SWITCH_PLATE_SCREW_POINTS = [
 #=====================================
 # ベースプレート
 #=====================================
-base_plate = (
-    Workplane()
+base_plate_sketch = (
+    Sketch()
     .rect(BASE_PLATE_WIDTH, BASE_PLATE_HEIGHT)
-    .extrude(BASE_PLATE_THICKNESS)
-    .edges("|Z")
+    .vertices()
     .fillet(BASE_PLATE_CORNER_R)
 )
+base_plate = (
+    Workplane()
+    .placeSketch(base_plate_sketch)
+    .extrude(BASE_PLATE_THICKNESS)
+)
 BASE_PLATE_SCREW_POINTS = [
-    (0, BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET),
-    (-BASE_PLATE_WIDTH / 6, -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
-    (BASE_PLATE_WIDTH / 6, -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
+    # 四隅
     (-(BASE_PLATE_WIDTH / 2 - 5), -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
     ((BASE_PLATE_WIDTH / 2 - 5), -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
     (-(BASE_PLATE_WIDTH / 2 - 5), (BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
     ((BASE_PLATE_WIDTH / 2 - 5), (BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
+    # その他
+    (0, BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET),
+    (-BASE_PLATE_WIDTH / 6, -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
+    (BASE_PLATE_WIDTH / 6, -(BASE_PLATE_HEIGHT / 2 - BASE_PLATE_SCREW_OFFSET)),
 ]
 
 #=====================================
@@ -255,10 +262,30 @@ result = (
     .pushPoints(SWITCH_PLATE_SCREW_POINTS)
     .hole(O_RING_DENT_DIA, O_RING_DENT_DEPTH)
 )
-print(M3_PREPARED_HOLE_DEPTH)
-print(M2_PREPARED_HOLE_DEPTH)
 
+# モデルを書き出し
 export_step_file(result, "./production/case.step", title="A case of The Yak40 keyboard", author="kurikisasa")
 export_stl_file(result, "./production/case.stl")
 
 # show(result)
+
+# ベースプレートアウトラインを書き出し
+base_plate_outline_7_holes = (
+    base_plate
+    .faces(">Z")
+    .workplane()
+    .pushPoints(BASE_PLATE_SCREW_POINTS)
+    .hole(BASE_PLATE_THROUGH_HOLE_DIAMETER)
+    .section()
+)
+exporters.exportDXF(base_plate_outline_7_holes, "./production/base_plate_7_holes.dxf")
+
+base_plate_outline_4_holes = (
+    base_plate
+    .faces(">Z")
+    .workplane()
+    .pushPoints(BASE_PLATE_SCREW_POINTS[0:4])
+    .hole(BASE_PLATE_THROUGH_HOLE_DIAMETER)
+    .section()
+)
+exporters.exportDXF(base_plate_outline_4_holes, "./production/base_plate_4_holes.dxf")
