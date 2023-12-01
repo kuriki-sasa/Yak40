@@ -74,7 +74,7 @@ M2_PREPARED_HOLE_DEPTH = 3.0 + M2_TAPPING_MARGIN
 
 # Oリングバーガーマウント用寸法
 O_RING_DENT_DIA = 4.3
-O_RING_DENT_DEPTH = 0.3
+O_RING_DENT_DEPTH = 0.4
 
 # キーレイアウト関連定義
 KLE_JSON_PATH = "../layout/yak40.json"
