@@ -1,3 +1,10 @@
+#+BIND: org-export-filter-line-break-functions (tmp-f-line-break)
+#+BEGIN_SRC emacs-lisp :exports results :results none
+  (defun tmp-f-line-break (s backend info)
+    (replace-in-string "\\" "  " s))
+#+END_SRC
+#+OPTIONS: num:nil
+
 * はじめに
 Yak40をお買い上げいただきありがとうございます。\\
 決して難しい構造ではありませんが、このドキュメントを良く読んで組み立ててください。\\
@@ -123,7 +130,8 @@ Web版、またはデスクトップアプリ版Vialを起動し、キーボー�
 ** 4.1. ファームウェア更新
 1. ボトムプレートを取り外す
 2. USB Type-CケーブルでPCとYak40キーボードを接続する
-3. PCBの ~BOOT~ スイッチを押しながら ~RESET~ スイッチを押す
+3. PCBの ~BOOT~ スイッチを押しながら ~RESET~ スイッチを押す\\
+   [[file:./images/reboot.jpg]]
    - PCにUSBストレージとして認識されます。
 4. 認識したUSBストレージに新しいファームウェアをコピーする
    - コピーが完了すると自動でUSBストレージが取り出され、キーボードとして認識されます。
