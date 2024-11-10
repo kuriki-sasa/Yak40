@@ -1,38 +1,38 @@
 
 # Table of Contents
 
--   [Introduction](#org237a30a)
--   [1. Preparation for assembly](#orgeb27a54)
-    -   [1.1. Preparation of parts and tools](#org6ae3296)
-        -   [1.1.1 What’s in the box](#orgecb41f0)
-        -   [1.1.2. Parts and tools necessary for building](#org75acfec)
-    -   [1.2. Check the PCB](#orga2dd401)
-        -   [1.2.1. Preparation of Vial](#org8aeed3a)
-        -   [1.2.2. Flashing firmware](#org7823b5d)
-        -   [1.2.3. Start Vial](#org2680bbf)
--   [2. Building](#org1b09fe4)
-    -   [2.1. Select layout](#orgdcf59a5)
-        -   [2.1.1. Install stabilizers](#org90ad9e1)
-        -   [2.1.2. Install rotary encoders](#orgc2f7ae9)
-    -   [2.2. Install plate](#orgab27595)
-    -   [2.3. Install PCB](#orgde75fd9)
-    -   [2.4. Install daughterboard](#org2b38961)
-    -   [2.5. Test keyboard](#orgb709932)
-    -   [2.6. Close the case](#org860a451)
-    -   [2.7. Install keycaps](#org8dc1115)
--   [3. Keymap settings](#orgc331320)
--   [4. Maintenance](#org8b487ea)
-    -   [4.1. Firmware updates](#orgf6009f6)
--   [5. Troubleshooting](#org5cae9cf)
-    -   [5.1. Keyboard is not recognized by PC](#orgeef4c96)
-    -   [5.2. Some keys are unresponsive](#org6376f6d)
-    -   [5.3. Rotary encoder is unresponsive](#org98057d0)
--   [6. Contact](#orgdab1fb7)
--   [さいごに](#orgd9e731e)
+-   [Introduction](#org04a69de)
+-   [1. Preparation for assembly](#orgeb5d76e)
+    -   [1.1. Preparation of parts and tools](#org424bb42)
+        -   [1.1.1 What’s in the box](#org0447f51)
+        -   [1.1.2. Parts and tools necessary for building](#org469684a)
+    -   [1.2. Check the PCB](#orgad05e82)
+        -   [1.2.1. Preparation of Vial](#org4eddf84)
+        -   [1.2.2. Flashing firmware](#orgbf37586)
+        -   [1.2.3. Start Vial](#org187050a)
+-   [2. Building](#org2937b0a)
+    -   [2.1. Select layout](#org676ff62)
+        -   [2.1.1. Install stabilizers](#org91d8c40)
+        -   [2.1.2. Install rotary encoders](#orgdd27b0c)
+    -   [2.2. Install plate](#org7550218)
+    -   [2.3. Install PCB](#org455d358)
+    -   [2.4. Install daughterboard](#orgf392d9c)
+    -   [2.5. Test keyboard](#org34f2ee0)
+    -   [2.6. Close the case](#org73b2324)
+    -   [2.7. Install keycaps](#orgd9194c9)
+-   [3. Keymap settings](#orgca9cc7e)
+-   [4. Maintenance](#orgff9bf6d)
+    -   [4.1. Firmware updates](#org2c9e474)
+-   [5. Troubleshooting](#orgae41c66)
+    -   [5.1. Keyboard is not recognized by PC](#org7a8ca22)
+    -   [5.2. Some keys are unresponsive](#org36d7c8c)
+    -   [5.3. Rotary encoder is unresponsive](#org537532f)
+-   [6. Contact](#org15c74c3)
+-   [Finally](#org7a69f99)
 
 
 
-<a id="org237a30a"></a>
+<a id="org04a69de"></a>
 
 # Introduction
 
@@ -42,21 +42,21 @@ It is not difficult to build, but please read this manual carefully and build it
 Hope you enjoy the Yak40!
 
 
-<a id="orgeb27a54"></a>
+<a id="orgeb5d76e"></a>
 
 # 1. Preparation for assembly
 
 
-<a id="org6ae3296"></a>
+<a id="org424bb42"></a>
 
 ## 1.1. Preparation of parts and tools
 
 
-<a id="orgecb41f0"></a>
+<a id="org0447f51"></a>
 
 ### 1.1.1 What’s in the box
 
-If there are any missing parts, please contact me at [6. Contact](#orgdab1fb7).
+If there are any missing parts, please contact me at [6. Contact](#org15c74c3).
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -202,7 +202,7 @@ If there are any missing parts, please contact me at [6. Contact](#orgdab1fb7).
 </table>
 
 
-<a id="org75acfec"></a>
+<a id="org469684a"></a>
 
 ### 1.1.2. Parts and tools necessary for building
 
@@ -276,12 +276,12 @@ If there are any missing parts, please contact me at [6. Contact](#orgdab1fb7).
 </table>
 
 
-<a id="orga2dd401"></a>
+<a id="orgad05e82"></a>
 
 ## 1.2. Check the PCB
 
 
-<a id="org8aeed3a"></a>
+<a id="org4eddf84"></a>
 
 ### 1.2.1. Preparation of Vial
 
@@ -289,7 +289,7 @@ Use Vial( <https://get.vial.today> ) to manage the keymap.
 Please install the application or prepare a compatible browser.
 
 
-<a id="org7823b5d"></a>
+<a id="orgbf37586"></a>
 
 ### 1.2.2. Flashing firmware
 
@@ -303,22 +303,22 @@ Please install the application or prepare a compatible browser.
     -   When copying is complete, the USB storage device is automatically ejected and recognized as a keyboard.
 
 
-<a id="org2680bbf"></a>
+<a id="org187050a"></a>
 
 ### 1.2.3. Start Vial
 
 Launch the web or application of Vial and make sure the keyboard is recognized.  
-If the keyboard is not recognized, please refer to [5. Troubleshooting](#org5cae9cf).
+If the keyboard is not recognized, please refer to [5. Troubleshooting](#orgae41c66).
 
 If all is well, remove it from the PC and disassemble it into the PCB, daughterboard, and daughterboard cable.
 
 
-<a id="org1b09fe4"></a>
+<a id="org2937b0a"></a>
 
 # 2. Building
 
 
-<a id="orgdcf59a5"></a>
+<a id="org676ff62"></a>
 
 ## 2.1. Select layout
 
@@ -326,7 +326,7 @@ Select the layout you want to use from [the supported layout](https://www.keyboa
 If you do not wish to install stabilizers or rotary encoders, skip this section.
 
 
-<a id="org90ad9e1"></a>
+<a id="org91d8c40"></a>
 
 ### 2.1.1. Install stabilizers
 
@@ -334,7 +334,7 @@ Install stabilizers in the following positions depending on the layout you want 
 ![img](./images/install_stabilizers.jpg)
 
 
-<a id="orgc2f7ae9"></a>
+<a id="orgdd27b0c"></a>
 
 ### 2.1.2. Install rotary encoders
 
@@ -342,7 +342,7 @@ Solder the rotary encoder in the following positions depending on the layout you
 ![img](./images/install_rotary_encoders.jpg)
 
 
-<a id="orgab27595"></a>
+<a id="org7550218"></a>
 
 ## 2.2. Install plate
 
@@ -358,7 +358,7 @@ Solder the rotary encoder in the following positions depending on the layout you
     -   If the screw is tightened too strongly, the key feel will become hard. Tighten the screws with moderate force.
 
 
-<a id="orgde75fd9"></a>
+<a id="org455d358"></a>
 
 ## 2.3. Install PCB
 
@@ -371,7 +371,7 @@ Solder the rotary encoder in the following positions depending on the layout you
         Tighten the screws while pushing the PCB toward the switch plate with your fingers.
 
 
-<a id="org2b38961"></a>
+<a id="orgf392d9c"></a>
 
 ## 2.4. Install daughterboard
 
@@ -380,7 +380,7 @@ Solder the rotary encoder in the following positions depending on the layout you
 2.  Connect the PCB and the daughterboard with the daughterboard cable.
 
 
-<a id="orgb709932"></a>
+<a id="org34f2ee0"></a>
 
 ## 2.5. Test keyboard
 
@@ -394,13 +394,13 @@ Solder the rotary encoder in the following positions depending on the layout you
     ![img](./images/unlock1.png)
 6.  Press and hold the two keys indicated.  
     ![img](./images/unlock2.png)
-    -   If the progress bar does not advance even though the key is pressed, please check [5. Troubleshooting](#org5cae9cf).
+    -   If the progress bar does not advance even though the key is pressed, please check [5. Troubleshooting](#orgae41c66).
 7.  Make sure all keys are responsive.  
     ![img](./images/test_matrix.png)
-    -   If some keys do not respond, please check [5. Troubleshooting](#org5cae9cf).
+    -   If some keys do not respond, please check [5. Troubleshooting](#orgae41c66).
 
 
-<a id="org860a451"></a>
+<a id="org73b2324"></a>
 
 ## 2.6. Close the case
 
@@ -409,7 +409,7 @@ Solder the rotary encoder in the following positions depending on the layout you
     ![img](./images/close_housing.jpg)
 
 
-<a id="org8dc1115"></a>
+<a id="orgd9194c9"></a>
 
 ## 2.7. Install keycaps
 
@@ -417,7 +417,7 @@ Install your favorite keycap you have prepared.
 It is almost finished!
 
 
-<a id="orgc331320"></a>
+<a id="orgca9cc7e"></a>
 
 # 3. Keymap settings
 
@@ -427,12 +427,12 @@ Click on the key you wish to change from the top of the screen, then select the 
 ![img](./images/change_keymap.png)
 
 
-<a id="org8b487ea"></a>
+<a id="orgff9bf6d"></a>
 
 # 4. Maintenance
 
 
-<a id="orgf6009f6"></a>
+<a id="org2c9e474"></a>
 
 ## 4.1. Firmware updates
 
@@ -446,12 +446,12 @@ Click on the key you wish to change from the top of the screen, then select the 
 5.  Attach the bottom plate to the case.
 
 
-<a id="org5cae9cf"></a>
+<a id="orgae41c66"></a>
 
 # 5. Troubleshooting
 
 
-<a id="orgeef4c96"></a>
+<a id="org7a8ca22"></a>
 
 ## 5.1. Keyboard is not recognized by PC
 
@@ -462,12 +462,12 @@ Try the following steps in order.
 2.  Check that the USB Type-C cable is inserted all the way to the back.
     -   Depending on the shape of the connector part, there is a possibility of interference with the case.  
         Try connecting with another USB Type-C cable.
-3.  Please contact me at [6. Contact](#orgdab1fb7).
+3.  Please contact me at [6. Contact](#org15c74c3).
     -   Please contact me through one of the contacts.  
         I would appreciate it if you could also attach detailed symptoms and photos.
 
 
-<a id="org6376f6d"></a>
+<a id="org36d7c8c"></a>
 
 ## 5.2. Some keys are unresponsive
 
@@ -478,12 +478,12 @@ Try the following steps in order.
     -   If the legs are bent, replace them with new keyswitches or straighten the legs before reinstalling them.
 3.  Check that the keyswitch is inserted correctly.
     -   Insert the keyswitch all the way to the back so that it does not float off the switch plate.
-4.  Please contact me at [6. Contact](#orgdab1fb7).
+4.  Please contact me at [6. Contact](#org15c74c3).
     -   Please contact me through one of the contacts.  
         I would appreciate it if you could also attach detailed symptoms and photos.
 
 
-<a id="org98057d0"></a>
+<a id="org537532f"></a>
 
 ## 5.3. Rotary encoder is unresponsive
 
@@ -492,12 +492,12 @@ Try the following steps in order.
 1.  Check that the soldering is done correctly.
     -   The soldering pad is small for coexistence with the key socket.  
         Heat the pad with a soldering iron again and confirm that it is soldered.
-2.  Please contact me at [6. Contact](#orgdab1fb7).
+2.  Please contact me at [6. Contact](#org15c74c3).
     -   Please contact me through one of the contacts.  
         I would appreciate it if you could also attach detailed symptoms and photos.
 
 
-<a id="orgdab1fb7"></a>
+<a id="org15c74c3"></a>
 
 # 6. Contact
 
@@ -507,9 +507,9 @@ Try the following steps in order.
 -   Discord server: <https://discord.gg/pC4t9NJStE>
 
 
-<a id="orgd9e731e"></a>
+<a id="org7a69f99"></a>
 
-# さいごに
+# Finally
 
 Did you complete it successfully?
 
